@@ -16,7 +16,9 @@ El inventario se llevaba en archivos de texto y hojas de cálculo, sin validacio
 
 ## Ejecución
 1. Instalar Python 3.
-2. Ejecutar: `python inventario.py`
+2. Ejecutar: `Python inventario.py`;
+3. ejecutar también el pfu.py
+
 
 ## Integrantes
 - DENILSON DAVIS MACHACA FLORES
