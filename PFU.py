@@ -3,13 +3,10 @@ import os
 
 ARCHIVO = "inventario.csv"
 CAMPOS = ["codigo", "nombre", "precio", "cantidad"]
-productos = [] 
+productos = []  
 
-<<<<<<< HEAD
-
-=======
->>>>>>> c3e7e8e2441327bb9bc111ad000086ec4c37811b
 def cargar_productos():
+    """Lee el CSV al iniciar. Si no existe, empieza con lista vacía."""
     if not os.path.exists(ARCHIVO):
         return
     try:
@@ -29,6 +26,7 @@ def cargar_productos():
 
 
 def guardar_productos():
+    """Escribe todos los productos en el CSV."""
     try:
         with open(ARCHIVO, "w", newline="", encoding="utf-8") as f:
             escritor = csv.DictWriter(f, fieldnames=CAMPOS)
@@ -38,13 +36,10 @@ def guardar_productos():
         print("No se pudo guardar el archivo.")
 
 
-<<<<<<< HEAD
-=======
 
->>>>>>> c3e7e8e2441327bb9bc111ad000086ec4c37811b
 def codigo_valido(codigo):
-    a= len(codigo) == 8 and codigo[:5] == "PROD-" and codigo[5:].isdigit()
-    return a
+    """Formato PROD-001: 'PROD-' seguido de 3 dígitos."""
+    return len(codigo) == 8 and codigo[:5] == "PROD-" and codigo[5:].isdigit()
 
 
 def buscar_producto(codigo):
@@ -62,7 +57,7 @@ def pedir_precio():
                 return precio
             print("El precio debe ser mayor que cero.")
         except ValueError:
-            print("Ingrese un número válido aqui.")
+            print("Ingrese un número válido.")
 
 
 def pedir_cantidad(mensaje):
@@ -73,12 +68,9 @@ def pedir_cantidad(mensaje):
                 return cantidad
             print("La cantidad no puede ser negativa.")
         except ValueError:
-            print("Ingrese un número entero aqui.")
+            print("Ingrese un número entero válido.")
 
-<<<<<<< HEAD
-=======
 
->>>>>>> c3e7e8e2441327bb9bc111ad000086ec4c37811b
 def registrar_producto():
     codigo = input("Código (ej: PROD-001): ").strip().upper()
     if not codigo_valido(codigo):
@@ -120,32 +112,28 @@ def actualizar_cantidad():
     guardar_productos()
     print("Cantidad actualizada correctamente.")
 
-<<<<<<< HEAD
-=======
 
->>>>>>> c3e7e8e2441327bb9bc111ad000086ec4c37811b
 def menu():
     cargar_productos()
     opcion = ""
     while opcion != "4":
         print("\n INVENTARIO DE LA DISTRIBUIDORA")
-        print("\n\n 1. Registrar un nuevo producto")
+        print("1. Registrar un nuevo producto")
         print("2. Consultar los productos registrados")
         print("3. Actualizar la cantidad de un producto")
         print("4. Salir")
-        opcion = int(input("Elija una opción: "))
+        opcion = input("Elija una opción: ").strip()
         match opcion:
-            case 1:
+            case "1":
                 registrar_producto()
-            case 2:
+            case "2":
                 consultar_productos()
-            case 3:
+            case "3":
                 actualizar_cantidad()
-            case 4:
-                print("Gracias por visitar el programa. (ing.porfa apruebeme)")
+            case "4":
+                print("Hasta luego.")
             case _:
                 print("Opción inválida.")
 
 
 menu()
-        
