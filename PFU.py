@@ -118,10 +118,10 @@ def menu():
     opcion = ""
     while opcion != "4":
         print("\n INVENTARIO DE LA DISTRIBUIDORA")
-        print("1. Registrar un nuevo producto")
-        print("2. Consultar los productos registrados")
-        print("3. Actualizar la cantidad de un producto")
-        print("4. Salir")
+        print("1. Registrar un nuevo producto-----")
+        print("2. Consultar los productos registrados----")
+        print("3. Actualizar la cantidad de un producto---")
+        print("4. si desea Saliraga clic aqui")
         opcion = input("Elija una opción: ").strip()
         match opcion:
             case "1":
