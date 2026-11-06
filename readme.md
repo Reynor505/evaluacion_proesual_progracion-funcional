@@ -19,8 +19,6 @@ El inventario se llevaba en archivos de texto y hojas de cálculo, sin validacio
 2. Ejecutar: `python inventario.py`
 
 ## Integrantes
-- Ronald Cruz Chino
-- Denislson Davis Machaca Flores
-- Daniel Wilfredo Pomarez Huaranca
-
-Materia: Programación Fundamental
+- DENILSON DAVIS MACHACA FLORES
+- RONALD CRUZ CHINO
+- DANIEL WILFREDO POMAREZ HUARANCA
