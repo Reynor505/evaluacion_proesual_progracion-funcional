@@ -5,8 +5,6 @@ ARCHIVO = "inventario.csv"
 CAMPOS = ["codigo", "nombre", "precio", "cantidad"]
 productos = []  # lista de diccionarios
 
-
-# ---------- Persistencia (CSV) ----------
 def cargar_productos():
     """Lee el CSV al iniciar. Si no existe, empieza con lista vacía."""
     if not os.path.exists(ARCHIVO):
@@ -38,7 +36,7 @@ def guardar_productos():
         print("No se pudo guardar el archivo.")
 
 
-# ---------- Validaciones ----------
+
 def codigo_valido(codigo):
     """Formato PROD-001: 'PROD-' seguido de 3 dígitos."""
     return len(codigo) == 8 and codigo[:5] == "PROD-" and codigo[5:].isdigit()
@@ -59,7 +57,7 @@ def pedir_precio():
                 return precio
             print("El precio debe ser mayor que cero.")
         except ValueError:
-            print("Ingrese un número válido.")
+            print("Ingrese un número válido aqui.")
 
 
 def pedir_cantidad(mensaje):
@@ -70,10 +68,9 @@ def pedir_cantidad(mensaje):
                 return cantidad
             print("La cantidad no puede ser negativa.")
         except ValueError:
-            print("Ingrese un número entero válido.")
+            print("Ingrese un número entero aqui.")
 
 
-# ---------- Operaciones del menú ----------
 def registrar_producto():
     codigo = input("Código (ej: PROD-001): ").strip().upper()
     if not codigo_valido(codigo):
@@ -116,7 +113,6 @@ def actualizar_cantidad():
     print("Cantidad actualizada correctamente.")
 
 
-# ---------- Programa principal ----------
 def menu():
     cargar_productos()
     opcion = ""
