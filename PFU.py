@@ -3,12 +3,10 @@ import os
 
 ARCHIVO = "inventario.csv"
 CAMPOS = ["codigo", "nombre", "precio", "cantidad"]
-productos = []  # lista de diccionarios
+productos = [] 
 
 
-# ---------- Persistencia (CSV) ----------
 def cargar_productos():
-    """Lee el CSV al iniciar. Si no existe, empieza con lista vacía."""
     if not os.path.exists(ARCHIVO):
         return
     try:
@@ -28,7 +26,6 @@ def cargar_productos():
 
 
 def guardar_productos():
-    """Escribe todos los productos en el CSV."""
     try:
         with open(ARCHIVO, "w", newline="", encoding="utf-8") as f:
             escritor = csv.DictWriter(f, fieldnames=CAMPOS)
@@ -38,10 +35,9 @@ def guardar_productos():
         print("No se pudo guardar el archivo.")
 
 
-# ---------- Validaciones ----------
 def codigo_valido(codigo):
-    """Formato PROD-001: 'PROD-' seguido de 3 dígitos."""
-    return len(codigo) == 8 and codigo[:5] == "PROD-" and codigo[5:].isdigit()
+    a= len(codigo) == 8 and codigo[:5] == "PROD-" and codigo[5:].isdigit()
+    return a
 
 
 def buscar_producto(codigo):
@@ -72,8 +68,6 @@ def pedir_cantidad(mensaje):
         except ValueError:
             print("Ingrese un número entero válido.")
 
-
-# ---------- Operaciones del menú ----------
 def registrar_producto():
     codigo = input("Código (ej: PROD-001): ").strip().upper()
     if not codigo_valido(codigo):
@@ -115,27 +109,25 @@ def actualizar_cantidad():
     guardar_productos()
     print("Cantidad actualizada correctamente.")
 
-
-# ---------- Programa principal ----------
 def menu():
     cargar_productos()
     opcion = ""
     while opcion != "4":
-        print("\n=== INVENTARIO DE LA DISTRIBUIDORA ===")
-        print("1. Registrar un nuevo producto")
+        print("\n INVENTARIO DE LA DISTRIBUIDORA")
+        print("\n\n 1. Registrar un nuevo producto")
         print("2. Consultar los productos registrados")
         print("3. Actualizar la cantidad de un producto")
         print("4. Salir")
-        opcion = input("Elija una opción: ").strip()
+        opcion = int(input("Elija una opción: "))
         match opcion:
-            case "1":
+            case 1:
                 registrar_producto()
-            case "2":
+            case 2:
                 consultar_productos()
-            case "3":
+            case 3:
                 actualizar_cantidad()
-            case "4":
-                print("Hasta luego.")
+            case 4:
+                print("Gracias por visitar el programa. (ing.porfa apruebeme)")
             case _:
                 print("Opción inválida.")
 
